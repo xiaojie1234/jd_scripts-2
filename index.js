@@ -16,9 +16,17 @@ exports.main_handler = async (event, context, callback) => {
       //})
 
       //3.执行github远端的js文件(因github的raw类型的文件被墙,此方法云函数不推荐)
-      request('https://raw.githubusercontent.com/LXK9301/jd_scripts/master/' + v + '.js', function (error, response, body) {
-        eval(response.body)
-      })
+//       request('https://raw.githubusercontent.com/LXK9301/jd_scripts/master/' + v + '.js', function (error, response, body) {
+//         eval(response.body)
+//       })
+      if(v == "jd_jdzz" || v == "jd_joy_run" || v == "jd_small_home"){
+        request('https://raw.githubusercontent.com/xiaojie1234/jd_scripts/master/' + v + '.js', function (error, response, body) {
+          eval(response.body)
+        })
+      } else {
+        delete require.cache[require.resolve('./'+v+'.js')];
+        require('./'+v+'.js')
+      }
     }
   } catch (e) {
     console.error(e)
