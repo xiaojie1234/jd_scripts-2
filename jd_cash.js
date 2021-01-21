@@ -15,7 +15,8 @@ cron "2 0 * * *" script-path=https://raw.githubusercontent.com/LXK9301/jd_script
 
 ===============Surge=================
 签到领现金 = type=cron,cronexp="2 0 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_cash.js
-
+`-4msulYas0O2JsRhE-2TA5XZmBQ@eU9Yar_mb_9z92_WmXNG0w@eU9YaO7jMvwh-W_VzyUX0Q`,
+  `-4msulYas0O2JsRhE-2TA5XZmBQ@eU9Yar_mb_9z92_WmXNG0w@eU9YaO7jMvwh-W_VzyUX0Q`
 ============小火箭=========
 签到领现金 = type=cron,script-path=https://raw.githubusercontent.com/LXK9301/jd_scripts/master/jd_cash.js, cronexpr="2 0 * * *", timeout=3600, enable=true
  */
@@ -29,8 +30,10 @@ let cookiesArr = [], cookie = '', message;
 let helpAuthor = true;
 const randomCount = $.isNode() ? 20 : 5;
 const inviteCodes = [
-  `-4msulYas0O2JsRhE-2TA5XZmBQ@eU9Yar_mb_9z92_WmXNG0w@eU9YaO7jMvwh-W_VzyUX0Q`,
-  `-4msulYas0O2JsRhE-2TA5XZmBQ@eU9Yar_mb_9z92_WmXNG0w@eU9YaO7jMvwh-W_VzyUX0Q`
+  `eU9YD7PQPIJ9uRqVuShs@eU9YaLjjbvh3ozvQzHJF1Q@eU9YaOjgYq8n8z_VzHAW3g`,
+  `ZBo0bu-wZf4n-Gvd@eU9YaLjjbvh3ozvQzHJF1Q@eU9YaOjgYq8n8z_VzHAW3g`,
+  `ZBo0bu-wZf4n-Gvd@eU9YD7PQPIJ9uRqVuShs@eU9YaOjgYq8n8z_VzHAW3g`,
+  `ZBo0bu-wZf4n-Gvd@eU9YD7PQPIJ9uRqVuShs@eU9YaLjjbvh3ozvQzHJF1Q`
 ]
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -294,11 +297,11 @@ function shareCodesFormat() {
       let authorCode = deepCopy($.authorCode)
       $.newShareCodes = [...(authorCode.map((item, index) => authorCode[index] = item['inviteCode'])), ...$.newShareCodes];
     }
-    const readShareCodeRes = await readShareCode();
-    if (readShareCodeRes && readShareCodeRes.code === 200) {
-      $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
-    }
-    $.newShareCodes.map((item, index) => $.newShareCodes[index] = { "inviteCode": item, "shareDate": $.shareDate })
+//     const readShareCodeRes = await readShareCode();
+//     if (readShareCodeRes && readShareCodeRes.code === 200) {
+//       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
+//     }
+//     $.newShareCodes.map((item, index) => $.newShareCodes[index] = { "inviteCode": item, "shareDate": $.shareDate })
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
